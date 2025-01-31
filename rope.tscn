@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfjxurbsd3ooq"]
+
+[ext_resource type="Texture2D" uid="uid://bhu56n0jkstx6" path="res://rope.png" id="1_kjv77"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jya5m"]
+radius = 5.0
+height = 388.0
+
+[node name="rope" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(433, 224)
+scale = Vector2(4.625, 12.8125)
+texture = ExtResource("1_kjv77")
+
+[node name="rope" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/rope"]
+position = Vector2(-0.432426, 0.0780487)
+scale = Vector2(0.216216, 0.0780488)
+shape = SubResource("CapsuleShape2D_jya5m")
