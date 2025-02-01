@@ -7,7 +7,6 @@ var lives = 3
 
 func decrease_health():
 	lives -= 1
-	print(lives)
 	for h in 3:
 		if (h < lives):
 			hearts[h].show()

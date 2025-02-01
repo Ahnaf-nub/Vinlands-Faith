@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@onready var game_manager: Node = %Gamemanager
+@onready var gamemanager: Node = %Gamemanager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +23,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			body.jump()
 		else:
 			print("decrease player's health")
-			game_manager.decrease_health()
+			gamemanager.decrease_health()
 			if (x_delta > 0):
 				body.jump_side(500)
 			else:

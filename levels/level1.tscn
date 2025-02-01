@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://xfjsj7aoa7jc" path="res://main_character.tscn" id="4_1wsq6"]
 [ext_resource type="Script" path="res://main_character.gd" id="5_8lvnn"]
 [ext_resource type="PackedScene" uid="uid://cxlvesxw3gc7m" path="res://collectibles.tscn" id="6_blbp0"]
-[ext_resource type="Script" path="res://game_manager.gd" id="7_unkp0"]
+[ext_resource type="Script" path="res://gamemanager.gd" id="7_unkp0"]
 [ext_resource type="Texture2D" uid="uid://8byela4m3l8r" path="res://door.png" id="8_ek71i"]
 [ext_resource type="Script" path="res://door.gd" id="9_uiwgo"]
-[ext_resource type="AudioStream" uid="uid://bwe612lq4r2lh" path="res://Vinlandsfaith.mp3" id="10_nliaq"]
+[ext_resource type="AudioStream" uid="uid://b4var2s1q1xco" path="res://game_song.mp3" id="10_hi8nu"]
 [ext_resource type="PackedScene" uid="uid://drymwcqiw7xxu" path="res://movingplatform.tscn" id="11_mo2ta"]
 [ext_resource type="Texture2D" uid="uid://bosrw51ubc4ib" path="res://heart.png" id="12_psne0"]
 [ext_resource type="PackedScene" uid="uid://coo3iwwovgf4h" path="res://enemy.tscn" id="13_5p5ay"]
@@ -639,6 +639,7 @@ radius = 8.40262
 height = 21.4204
 
 [node name="Node" type="Node"]
+script = ExtResource("7_unkp0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -685,7 +686,7 @@ position = Vector2(1.36542, 1.76326)
 shape = SubResource("CapsuleShape2D_3dveh")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_nliaq")
+stream = ExtResource("10_hi8nu")
 volume_db = 24.0
 autoplay = true
 mix_target = 1
@@ -699,6 +700,7 @@ position = Vector2(910, -126)
 
 [node name="Hearts" type="Panel" parent="UI"]
 texture_filter = 1
+clip_contents = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

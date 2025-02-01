@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://xfjsj7aoa7jc" path="res://main_character.tscn" id="4_5d8mc"]
 [ext_resource type="Script" path="res://main_character.gd" id="5_sl2f2"]
 [ext_resource type="PackedScene" uid="uid://cxlvesxw3gc7m" path="res://collectibles.tscn" id="6_shs7d"]
-[ext_resource type="Script" path="res://game_manager.gd" id="7_4as1y"]
-[ext_resource type="AudioStream" uid="uid://bwe612lq4r2lh" path="res://Vinlandsfaith.mp3" id="10_q4lbv"]
+[ext_resource type="Script" path="res://gamemanager.gd" id="7_4as1y"]
+[ext_resource type="AudioStream" uid="uid://b4var2s1q1xco" path="res://game_song.mp3" id="7_41ysf"]
 [ext_resource type="Texture2D" uid="uid://cc1m3lrwipht7" path="res://Apple.png" id="11_vwe2h"]
 [ext_resource type="Texture2D" uid="uid://bosrw51ubc4ib" path="res://heart.png" id="12_8208x"]
 [ext_resource type="PackedScene" uid="uid://coo3iwwovgf4h" path="res://enemy.tscn" id="13_0c40n"]
@@ -817,6 +817,7 @@ animations = [{
 }]
 
 [node name="Node" type="Node"]
+script = ExtResource("7_4as1y")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -843,7 +844,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_q4lbv")
+stream = ExtResource("7_41ysf")
 volume_db = 24.0
 autoplay = true
 mix_target = 1
@@ -851,6 +852,7 @@ mix_target = 1
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Hearts" type="Panel" parent="UI"]
+clip_contents = true
 anchors_preset = -1
 anchor_left = 0.896
 anchor_top = 0.075
