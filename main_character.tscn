@@ -3,16 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://du5u7yo1e11c5" path="res://kaonashi32.png" id="1_q3gll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqxrf"]
-size = Vector2(49.5, 93)
+size = Vector2(46.75, 78.5)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(3, 54.5)
-scale = Vector2(4.75, 4.59375)
+position = Vector2(-7.5, 40.5)
+scale = Vector2(4.09375, 3.71875)
 texture = ExtResource("1_q3gll")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(50.25, 78.5)
+position = Vector2(33.625, 59.75)
 shape = SubResource("RectangleShape2D_xqxrf")
