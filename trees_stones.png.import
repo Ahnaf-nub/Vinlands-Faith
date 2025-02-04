@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du5u7yo1e11c5"
-path="res://.godot/imported/kaonashi32.png-ae8ddb55dbe14ee2e617479551cafe4b.ctex"
+uid="uid://gpu6jxo88kwj"
+path="res://.godot/imported/trees_stones.png-6eaa12c165528cda1035fb4c534ccdbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://kaonashi32.png"
-dest_files=["res://.godot/imported/kaonashi32.png-ae8ddb55dbe14ee2e617479551cafe4b.ctex"]
+source_file="res://trees_stones.png"
+dest_files=["res://.godot/imported/trees_stones.png-6eaa12c165528cda1035fb4c534ccdbf.ctex"]
 
 [params]
 

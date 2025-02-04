@@ -2699,15 +2699,6 @@ layer_1/tile_data = PackedInt32Array(2097191, 65546, 0, 2162727, 458755, 1, 2097
 layer_2/name = "Layer2"
 layer_2/tile_data = PackedInt32Array(917505, 9, 0, 983041, 9, 1, 1048577, 9, 2, 1638443, 9, 0, 1703979, 9, 1, 1769515, 9, 2, 393235, 1179651, 12, 393236, 1245187, 12, 393237, 1310723, 12, 458773, 1245187, 12, 458774, 1310723, 12, 458775, 1310723, 12, 458772, 1179651, 12, 524310, 1245187, 12, 524311, 1310723, 12, 524312, 1310723, 12, 589848, 1245187, 12, 589849, 1310723, 12, 589850, 1310723, 12, 589847, 1179651, 12, 524309, 1179651, 12, 589852, 1245187, 12, 589853, 1310723, 12, 589854, 1179651, 12, 589851, 1179651, 12, 589855, 1245187, 12, 589856, 1310723, 12, 589857, 1179651, 12, 589858, 1245187, 12, 589859, 1310723, 12, 589860, 1179651, 12, 589861, 1245187, 12, 589862, 1310723, 12, 589863, 1179651, 12, 589864, 1245187, 12, 589865, 1310723, 12, 589866, 1179651, 12, 589867, 1245187, 12, 589868, 1310723, 12, 589869, 1179651, 12, 589870, 1245187, 12, 589871, 1310723, 12, 589872, 1179651, 12, 589873, 1245187, 12, 589874, 1310723, 12, 589875, 1179651, 12, 589876, 1245187, 12, 589877, 1310723, 12, 589878, 1179651, 12, 589879, 1245187, 12, 589880, 1310723, 12, 655417, 1179651, 12, 655418, 1245187, 12, 655419, 1310723, 12)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("9_qdouq")]
-position = Vector2(33, 954)
-script = ExtResource("10_6ajgv")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(53, 93)
-position_smoothing_enabled = true
-position_smoothing_speed = 7.0
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_2xe87")
 volume_db = 24.0
@@ -2799,8 +2790,22 @@ frame_progress = 0.444155
 [node name="collectibles3" parent="." instance=ExtResource("15_8j8yn")]
 position = Vector2(799, 300)
 
-[connection signal="body_entered" from="rope/Sprite2D/rope" to="CharacterBody2D" method="_on_rope_body_entered"]
-[connection signal="body_exited" from="rope/Sprite2D/rope" to="CharacterBody2D" method="_on_rope_body_exited"]
+[node name="CharacterBody2D" parent="." instance=ExtResource("9_qdouq")]
+position = Vector2(33, 960)
+script = ExtResource("10_6ajgv")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" parent="CharacterBody2D" index="0"]
+position = Vector2(33, 61)
+scale = Vector2(2.375, 2.375)
+
+[node name="CollisionShape2D" parent="CharacterBody2D" index="1"]
+position = Vector2(34, 59)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(53, 93)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
 
 [editable path="collectibles"]
 [editable path="enemy"]
@@ -2808,3 +2813,4 @@ position = Vector2(799, 300)
 [editable path="Enemy_attack2"]
 [editable path="door"]
 [editable path="collectibles2"]
+[editable path="CharacterBody2D"]

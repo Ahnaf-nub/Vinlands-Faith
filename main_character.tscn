@@ -1,18 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://xfjsj7aoa7jc"]
 
-[ext_resource type="Texture2D" uid="uid://du5u7yo1e11c5" path="res://kaonashi32.png" id="1_q3gll"]
+[ext_resource type="Texture2D" uid="uid://bcs71mwcqdl1i" path="res://player.png" id="1_3drab"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqxrf"]
-size = Vector2(46.75, 78.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vmhyc"]
+height = 62.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-7.5, 40.5)
-scale = Vector2(4.09375, 3.71875)
-texture = ExtResource("1_q3gll")
+position = Vector2(34, 60)
+scale = Vector2(2.51563, 2.10938)
+texture = ExtResource("1_3drab")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(33.625, 59.75)
-shape = SubResource("RectangleShape2D_xqxrf")
+position = Vector2(35, 61)
+shape = SubResource("CapsuleShape2D_vmhyc")

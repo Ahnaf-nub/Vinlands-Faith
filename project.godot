@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Vinland's Faith"
-run/main_scene="res://levels/level4.tscn"
+run/main_scene="res://levels/level2.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+
+[autoload]
+
+Global="*res://global.gd"
 
 [display]
 
