@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://lyoxow81xs4a"]
+
+[ext_resource type="Texture2D" uid="uid://c4yxvuhug7jm7" path="res://lift.png" id="1_bryth"]
+[ext_resource type="Script" path="res://lift.gd" id="1_tfayj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms8lk"]
+atlas = ExtResource("1_bryth")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubwex"]
+atlas = ExtResource("1_bryth")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tl7tf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms8lk")
+}],
+"loop": true,
+"name": &"close",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubwex")
+}],
+"loop": true,
+"name": &"open",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_717eh"]
+size = Vector2(73, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blbwt"]
+size = Vector2(73, 75)
+
+[node name="Lift" type="Node2D"]
+script = ExtResource("1_tfayj")
+top_position = Vector2(0, -200)
+
+[node name="Platform" type="StaticBody2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Platform"]
+texture_filter = 1
+position = Vector2(26.5, 27.5)
+scale = Vector2(2.65625, 2.71875)
+sprite_frames = SubResource("SpriteFrames_tl7tf")
+animation = &"open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(26.5, 63.5)
+shape = SubResource("RectangleShape2D_717eh")
+
+[node name="LiftTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LiftTrigger"]
+position = Vector2(26.5, 27.5)
+shape = SubResource("RectangleShape2D_blbwt")
+
+[connection signal="body_entered" from="LiftTrigger" to="." method="_on_lift_trigger_body_entered"]
+[connection signal="body_exited" from="LiftTrigger" to="." method="_on_lift_trigger_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://xj1h01gwlbaj"]
+[gd_scene load_steps=61 format=3 uid="uid://xj1h01gwlbaj"]
 
 [ext_resource type="Texture2D" uid="uid://cujoin6axd5nu" path="res://Purple.png" id="1_56fe6"]
 [ext_resource type="Texture2D" uid="uid://dgj6k7hs3iaed" path="res://Terrain (16x16).png" id="2_em6b8"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cvrudocxapljr" path="res://levels/lamp.png" id="14_365pb"]
 [ext_resource type="Script" path="res://dimension.gd" id="15_ijoux"]
 [ext_resource type="PackedScene" uid="uid://bji5bhht00lak" path="res://enemy_attack.tscn" id="21_t0gx7"]
+[ext_resource type="PackedScene" uid="uid://c5nlihxrcmduf" path="res://door.tscn" id="22_ssfsq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_huvdk"]
 texture = ExtResource("2_em6b8")
@@ -1912,7 +1913,7 @@ expand_mode = 2
 script = ExtResource("15_ijoux")
 
 [node name="Area2D" parent="Dimension" index="0"]
-position = Vector2(813, 869)
+position = Vector2(820, 100)
 
 [node name="collectibles" parent="." instance=ExtResource("6_dt82f")]
 position = Vector2(-25, 354)
@@ -1944,6 +1945,9 @@ position = Vector2(1546, 203)
 
 [node name="Enemy_attack2" parent="." instance=ExtResource("21_t0gx7")]
 position = Vector2(50, 105)
+
+[node name="door" parent="." instance=ExtResource("22_ssfsq")]
+position = Vector2(1887, 1018)
 
 [connection signal="body_entered" from="Dimension/Area2D" to="Dimension" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="rope/Sprite2D/rope" to="CharacterBody2D" method="_on_rope_body_entered"]

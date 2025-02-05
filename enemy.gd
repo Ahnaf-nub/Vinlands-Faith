@@ -17,7 +17,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var y_delta = position.y - body.position.y
 		var x_delta = body.position.x - position.x
 		print (y_delta)
-		if (y_delta > -360):
+		if (y_delta > -362):
 			print("Destroy enemy")
 			queue_free()
 			body.jump()

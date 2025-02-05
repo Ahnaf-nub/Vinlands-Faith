@@ -19,7 +19,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"close",
-"speed": 1.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -27,7 +27,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"open",
-"speed": 5.0
+"speed": 0.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ptmu"]
