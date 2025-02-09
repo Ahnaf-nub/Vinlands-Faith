@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhu56n0jkstx6"
-path="res://.godot/imported/rope.png-5dab8fabeff28702cfa95db44657915b.ctex"
+uid="uid://br4h0v7q73pxv"
+path="res://.godot/imported/Warrior_Death_1.png-3e1e461209689589b9c0da4c6b985229.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rope.png"
-dest_files=["res://.godot/imported/rope.png-5dab8fabeff28702cfa95db44657915b.ctex"]
+source_file="res://Warrior_Death_1.png"
+dest_files=["res://.godot/imported/Warrior_Death_1.png-3e1e461209689589b9c0da4c6b985229.ctex"]
 
 [params]
 

@@ -17,12 +17,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var y_delta = position.y - body.position.y
 		var x_delta = body.position.x - position.x
 		print (y_delta)
-		if (y_delta > -362):
-			print("Destroy enemy")
+		if (y_delta > -380):
 			queue_free()
 			body.jump()
 		else:
-			print("decrease player's health")
 			gamemanager.call_deferred("decrease_health")
 			if (x_delta > 0):
 				body.jump_side(500)

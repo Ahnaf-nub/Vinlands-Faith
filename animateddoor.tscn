@@ -30,9 +30,8 @@ animations = [{
 "speed": 0.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ptmu"]
-radius = 8.0
-height = 17.4545
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jktho"]
+size = Vector2(14.5455, 17.9701)
 
 [node name="animateddoor" type="Node2D"]
 script = ExtResource("1_gvfwm")
@@ -51,7 +50,8 @@ animation = &"open"
 [node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
-position = Vector2(7, 1.45455)
-shape = SubResource("CapsuleShape2D_5ptmu")
+position = Vector2(7.75757, 0.439604)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jktho")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

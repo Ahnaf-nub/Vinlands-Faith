@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://main_character.gd" id="5_sl2f2"]
 [ext_resource type="PackedScene" uid="uid://cxlvesxw3gc7m" path="res://collectibles.tscn" id="6_shs7d"]
 [ext_resource type="Script" path="res://gamemanager.gd" id="7_4as1y"]
-[ext_resource type="AudioStream" uid="uid://b4var2s1q1xco" path="res://game_song.mp3" id="7_41ysf"]
+[ext_resource type="AudioStream" uid="uid://b4p1esu4c37xe" path="res://game_song.mp3" id="7_41ysf"]
 [ext_resource type="Texture2D" uid="uid://cc1m3lrwipht7" path="res://Apple.png" id="11_vwe2h"]
 [ext_resource type="Texture2D" uid="uid://bosrw51ubc4ib" path="res://heart.png" id="12_8208x"]
 [ext_resource type="PackedScene" uid="uid://coo3iwwovgf4h" path="res://enemy.tscn" id="13_0c40n"]
@@ -1043,6 +1043,7 @@ sprite_frames = SubResource("SpriteFrames_7d1hn")
 frame_progress = 0.015248
 
 [node name="rope" parent="." instance=ExtResource("14_7q5ob")]
+position = Vector2(0, -12)
 
 [node name="Gamemanager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
 unique_name_in_owner = true

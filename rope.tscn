@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfjxurbsd3ooq"]
 
-[ext_resource type="Texture2D" uid="uid://bhu56n0jkstx6" path="res://rope.png" id="1_kjv77"]
+[ext_resource type="Texture2D" uid="uid://cp5wrcf32p8uo" path="res://ladder.png" id="1_ifwtp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jya5m"]
-radius = 5.0
+radius = 57.8246
 height = 388.0
 
 [node name="rope" type="Node2D"]
@@ -11,9 +11,9 @@ metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(433, 224)
-scale = Vector2(4.625, 12.8125)
-texture = ExtResource("1_kjv77")
+position = Vector2(388.5, 243.5)
+scale = Vector2(1.71875, 11.5938)
+texture = ExtResource("1_ifwtp")
 
 [node name="rope" type="Area2D" parent="Sprite2D"]
 
