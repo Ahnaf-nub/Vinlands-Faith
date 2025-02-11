@@ -206,8 +206,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 8.0
+"speed": 10.0
 }]
+
+[sub_resource type="Animation" id="Animation_o3cjd"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_worxa"]
 resource_name = "attack"
@@ -223,9 +226,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"Attack", &"Attack"]
 }
-
-[sub_resource type="Animation" id="Animation_o3cjd"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_urhqh"]
 _data = {
@@ -247,7 +247,8 @@ texture_filter = 1
 position = Vector2(45, 53)
 scale = Vector2(1.53125, 1.63636)
 sprite_frames = SubResource("SpriteFrames_kdpa2")
-animation = &"Attack"
+animation = &"run"
+frame_progress = 0.516396
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

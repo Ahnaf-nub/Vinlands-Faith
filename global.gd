@@ -8,6 +8,7 @@ var next_levels = {
 	"res://levels/level2.tscn": "res://levels/level3.tscn",
 	"res://levels/level3.tscn": "res://levels/level4.tscn",
 	"res://levels/level4.tscn": "res://levels/level5.tscn",
+	"res://levels/level5.tscn": "res://levels/final.tscn",
 }
 
 func update_current_level(scene_path: String) -> void:

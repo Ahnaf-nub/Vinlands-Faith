@@ -1,21 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb1hn8wkvdqis"]
+[gd_scene load_steps=7 format=3 uid="uid://cb1hn8wkvdqis"]
 
 [ext_resource type="Script" path="res://pressure_plate.gd" id="1_v7eo0"]
-[ext_resource type="Texture2D" uid="uid://rghbomit241q" path="res://Blue.png" id="2_76kh5"]
+[ext_resource type="Texture2D" uid="uid://dei6frofhni6t" path="res://plate.png" id="2_ck8hs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyu1e"]
+atlas = ExtResource("2_ck8hs")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7wxk"]
+atlas = ExtResource("2_ck8hs")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iehtm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyu1e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7wxk")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 0.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlya5"]
-size = Vector2(45, 5.5)
+size = Vector2(56, 5.5)
 
 [node name="PressurePlate" type="Area2D"]
 script = ExtResource("1_v7eo0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-8.5, -28)
-scale = Vector2(0.734375, 0.125)
-texture = ExtResource("2_76kh5")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-16.7188, -39)
+scale = Vector2(2.58008, 1.3125)
+sprite_frames = SubResource("SpriteFrames_iehtm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8.5, -27.75)
+position = Vector2(-17, -35)
 shape = SubResource("RectangleShape2D_xlya5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://rqd6kp5epyag"]
+[gd_scene load_steps=60 format=3 uid="uid://rqd6kp5epyag"]
 
 [ext_resource type="Texture2D" uid="uid://dgj6k7hs3iaed" path="res://Terrain (16x16).png" id="2_wihck"]
 [ext_resource type="Texture2D" uid="uid://bsvy0fwgfs1ci" path="res://Tree.png" id="3_p6rnx"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://csnniifq7fwg0" path="res://levels/fence_2.png" id="7_heq17"]
 [ext_resource type="Texture2D" uid="uid://cvrudocxapljr" path="res://levels/lamp.png" id="8_4mr18"]
 [ext_resource type="PackedScene" uid="uid://xfjsj7aoa7jc" path="res://main_character.tscn" id="9_qdouq"]
-[ext_resource type="Script" path="res://main_character.gd" id="10_6ajgv"]
 [ext_resource type="AudioStream" uid="uid://b4p1esu4c37xe" path="res://game_song.mp3" id="11_2xe87"]
 [ext_resource type="Texture2D" uid="uid://bosrw51ubc4ib" path="res://heart.png" id="12_pxcy5"]
 [ext_resource type="PackedScene" uid="uid://cxlvesxw3gc7m" path="res://collectibles.tscn" id="15_8j8yn"]
@@ -2735,14 +2734,9 @@ position = Vector2(799, 300)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("9_qdouq")]
 position = Vector2(384, 960)
-script = ExtResource("10_6ajgv")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" parent="CharacterBody2D" index="0"]
-position = Vector2(33, 61)
-scale = Vector2(2.375, 2.375)
-
-[node name="CollisionShape2D" parent="CharacterBody2D" index="1"]
+[node name="CollisionShape2D" parent="CharacterBody2D" index="2"]
 position = Vector2(34, 59)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

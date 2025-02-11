@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bpicf6u08kg5k"]
+[gd_scene load_steps=27 format=3 uid="uid://bpicf6u08kg5k"]
 
 [ext_resource type="Texture2D" uid="uid://dgj6k7hs3iaed" path="res://Terrain (16x16).png" id="1_d3qds"]
 [ext_resource type="Texture2D" uid="uid://daotyhuprjhu5" path="res://more_jungle.png" id="2_fhsl2"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://s0rmgegde50s" path="res://levels/tileset.png" id="8_jxnde"]
 [ext_resource type="PackedScene" uid="uid://xfjsj7aoa7jc" path="res://main_character.tscn" id="9_xa0ca"]
 [ext_resource type="PackedScene" uid="uid://drymwcqiw7xxu" path="res://movingplatform.tscn" id="10_8ej6c"]
-[ext_resource type="Script" path="res://main_character.gd" id="10_rqd02"]
 [ext_resource type="AudioStream" uid="uid://b4p1esu4c37xe" path="res://game_song.mp3" id="11_xd4wr"]
 [ext_resource type="Texture2D" uid="uid://bosrw51ubc4ib" path="res://heart.png" id="12_dcqmi"]
 [ext_resource type="PackedScene" uid="uid://cxlvesxw3gc7m" path="res://collectibles.tscn" id="13_rv2mt"]
@@ -1085,7 +1084,6 @@ layer_3/tile_data = PackedInt32Array(983061, 13, 0, 983062, 65549, 0, 983063, 13
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("9_xa0ca")]
 position = Vector2(6, 528)
-script = ExtResource("10_rqd02")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(53, 93)
@@ -1167,7 +1165,7 @@ position = Vector2(2252, -33)
 position = Vector2(48, 74)
 
 [node name="PressurePlate" parent="." node_paths=PackedStringArray("door") instance=ExtResource("18_uyxqp")]
-position = Vector2(1129, 537)
+position = Vector2(1130, 547)
 door = NodePath("../animateddoor")
 press_duration = 2.0
 

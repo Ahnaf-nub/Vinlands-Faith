@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk6sarnb3cudf"]
+
+[ext_resource type="Texture2D" uid="uid://daotyhuprjhu5" path="res://more_jungle.png" id="1_6p13y"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+scale = Vector2(9.44687, 5.91875)
+texture = ExtResource("1_6p13y")
+centered = false

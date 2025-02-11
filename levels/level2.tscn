@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://xj1h01gwlbaj"]
+[gd_scene load_steps=60 format=3 uid="uid://xj1h01gwlbaj"]
 
 [ext_resource type="Texture2D" uid="uid://cujoin6axd5nu" path="res://Purple.png" id="1_56fe6"]
 [ext_resource type="Texture2D" uid="uid://dgj6k7hs3iaed" path="res://Terrain (16x16).png" id="2_em6b8"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b7hk4kmaih4ud" path="res://levels/Tilemap_Elevation.png" id="4_cgina"]
 [ext_resource type="PackedScene" uid="uid://xfjsj7aoa7jc" path="res://main_character.tscn" id="4_otcdv"]
 [ext_resource type="Texture2D" uid="uid://d3001bkunlo0e" path="res://levels/shop.png" id="5_lqdok"]
-[ext_resource type="Script" path="res://main_character.gd" id="5_mc5sd"]
 [ext_resource type="PackedScene" uid="uid://cxlvesxw3gc7m" path="res://collectibles.tscn" id="6_dt82f"]
 [ext_resource type="Script" path="res://gamemanager.gd" id="7_00rlx"]
 [ext_resource type="AudioStream" uid="uid://b4p1esu4c37xe" path="res://game_song.mp3" id="7_4otiv"]
@@ -1852,7 +1851,6 @@ layer_1/tile_data = PackedInt32Array(1966105, 786434, 16, 2031641, 786434, 17, 2
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_otcdv")]
 position = Vector2(99, 538)
-script = ExtResource("5_mc5sd")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(53, 93)

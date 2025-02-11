@@ -1,10 +1,8 @@
-[gd_scene load_steps=61 format=3 uid="uid://d260vocjicbjm"]
+[gd_scene load_steps=59 format=3 uid="uid://d260vocjicbjm"]
 
-[ext_resource type="Texture2D" uid="uid://cujoin6axd5nu" path="res://Purple.png" id="1_qs3sq"]
 [ext_resource type="Texture2D" uid="uid://dgj6k7hs3iaed" path="res://Terrain (16x16).png" id="2_gnwx5"]
 [ext_resource type="Texture2D" uid="uid://bsvy0fwgfs1ci" path="res://Tree.png" id="3_4whyi"]
 [ext_resource type="PackedScene" uid="uid://xfjsj7aoa7jc" path="res://main_character.tscn" id="4_5d8mc"]
-[ext_resource type="Script" path="res://main_character.gd" id="5_sl2f2"]
 [ext_resource type="PackedScene" uid="uid://cxlvesxw3gc7m" path="res://collectibles.tscn" id="6_shs7d"]
 [ext_resource type="Script" path="res://gamemanager.gd" id="7_4as1y"]
 [ext_resource type="AudioStream" uid="uid://b4p1esu4c37xe" path="res://game_song.mp3" id="7_41ysf"]
@@ -948,11 +946,8 @@ animations = [{
 script = ExtResource("7_4as1y")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 1
-offset_right = 1151.0
-offset_bottom = 639.0
-texture = ExtResource("1_qs3sq")
-stretch_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -964,7 +959,6 @@ layer_0/tile_data = PackedInt32Array(0, 1114112, 4, 65536, 1114112, 5, 131072, 1
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_5d8mc")]
 position = Vector2(87, 482)
-script = ExtResource("5_sl2f2")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(53, 93)
