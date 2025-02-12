@@ -1,7 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://bpicf6u08kg5k"]
+[gd_scene load_steps=29 format=3 uid="uid://bpicf6u08kg5k"]
 
 [ext_resource type="Texture2D" uid="uid://dgj6k7hs3iaed" path="res://Terrain (16x16).png" id="1_d3qds"]
-[ext_resource type="Texture2D" uid="uid://daotyhuprjhu5" path="res://more_jungle.png" id="2_fhsl2"]
 [ext_resource type="Texture2D" uid="uid://cyk0p4k1pe27v" path="res://oak_woods_tileset.png" id="5_bd4fc"]
 [ext_resource type="Texture2D" uid="uid://bvhh81ax4kqep" path="res://levels/rock_3.png" id="5_t6n65"]
 [ext_resource type="Texture2D" uid="uid://clro5s0kse1w1" path="res://levels/fence_1.png" id="6_yvpty"]
@@ -16,9 +15,12 @@
 [ext_resource type="Script" path="res://gamemanager.gd" id="18_em6eg"]
 [ext_resource type="PackedScene" uid="uid://cb1hn8wkvdqis" path="res://pressure_plate.tscn" id="18_uyxqp"]
 [ext_resource type="PackedScene" uid="uid://bji5bhht00lak" path="res://enemy_attack.tscn" id="19_lwne2"]
+[ext_resource type="Texture2D" uid="uid://c7rr0wog6py63" path="res://background_layer_1.png" id="19_nur8g"]
 [ext_resource type="PackedScene" uid="uid://bsmvv0r46eqw7" path="res://animateddoor.tscn" id="19_w3w10"]
 [ext_resource type="PackedScene" uid="uid://c5nlihxrcmduf" path="res://door.tscn" id="20_2fhpx"]
+[ext_resource type="Texture2D" uid="uid://jeyxv1otyf0c" path="res://background_layer_2.png" id="20_i4wiy"]
 [ext_resource type="PackedScene" uid="uid://dph34kusiui7r" path="res://spikecrusher.tscn" id="20_pwh8t"]
+[ext_resource type="Texture2D" uid="uid://7o8m0kef6q6a" path="res://background_layer_3.png" id="21_oklw6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_huvdk"]
 texture = ExtResource("1_d3qds")
@@ -1060,14 +1062,6 @@ sources/13 = SubResource("TileSetAtlasSource_d5sdi")
 [node name="Node" type="Node"]
 script = ExtResource("18_em6eg")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 1
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 4601.0
-offset_bottom = 641.0
-texture = ExtResource("2_fhsl2")
-
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 position = Vector2(1, 0)
@@ -1103,7 +1097,7 @@ position = Vector2(4531, 238)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_xd4wr")
-volume_db = 24.0
+volume_db = -25.0
 autoplay = true
 mix_target = 1
 
@@ -1178,6 +1172,38 @@ scale = Vector2(4.8125, 5.89063)
 
 [node name="Spikecrusher" parent="." instance=ExtResource("20_pwh8t")]
 position = Vector2(2037, 444)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(11, 13)
+texture = ExtResource("19_nur8g")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(11, 13)
+texture = ExtResource("20_i4wiy")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(11, 13)
+texture = ExtResource("21_oklw6")
+centered = false
 
 [editable path="movingplatform"]
 [editable path="animateddoor"]

@@ -1,6 +1,14 @@
 extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+@onready var jumping: AudioStreamPlayer = $Jumping
+@onready var attacking: AudioStreamPlayer = $Attacking
+@onready var falling: AudioStreamPlayer = $Falling
+@onready var running: AudioStreamPlayer = $Running
+
+
+
 const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
 const FALL_THRESHOLD = 1200.0 # Y position below which the character will restart
@@ -19,6 +27,8 @@ func _ready() -> void:
 	
 func jump():
 	velocity.y = JUMP_VELOCITY
+	jumping.play()
+
 	
 func jump_side(x):
 	velocity.y = JUMP_VELOCITY
@@ -38,8 +48,11 @@ func _physics_process(delta: float) -> void:
 		if direction != 0:
 			velocity.x = direction * SPEED
 			last_direction = direction  # Store last facing direction
+			if !running.playing: # Prevent overlapping sounds
+				running.play()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			running.stop()
 
 	# Handle animations
 	if velocity.x != 0 and !is_attacking:
@@ -53,6 +66,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		if velocity.y > 0:
 			sprite.play("fall")
+			if !falling.playing: # Play fall sound only once per fall
+				falling.play()
 		else:
 			sprite.play("jump")
 
@@ -72,9 +87,12 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			double_jump = 1  # Reset double jump when on the floor
 			velocity.y = JUMP_VELOCITY
+			jumping.play()
 		elif double_jump == 1:
 			double_jump = 2  # Allow second jump
 			velocity.y = JUMP_VELOCITY
+			jumping.play()
+
 	
 	# Ensure double jump resets properly when landing
 	if is_on_floor() and velocity.y == 0:
@@ -87,6 +105,7 @@ func _physics_process(delta: float) -> void:
 		is_attacking = true
 		Global.current_attack = true
 		animation_player.play("attack")
+		attacking.play()
 		
 	move_and_slide()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://xfjsj7aoa7jc"]
+[gd_scene load_steps=53 format=3 uid="uid://xfjsj7aoa7jc"]
 
 [ext_resource type="Script" path="res://main_character.gd" id="1_mpcam"]
 [ext_resource type="Texture2D" uid="uid://bel38sy3c0ec" path="res://Warrior_Attack_5.png" id="6_qpsi2"]
@@ -30,9 +30,13 @@
 [ext_resource type="Texture2D" uid="uid://g8av6wmx3xx8" path="res://Warrior_Jump_1.png" id="37_no8jb"]
 [ext_resource type="Texture2D" uid="uid://bimsktv15mxg3" path="res://Warrior_Jump_2.png" id="38_lq6gs"]
 [ext_resource type="Texture2D" uid="uid://dqubhwpg7xnyf" path="res://Warrior_Jump_3.png" id="39_lqxvu"]
+[ext_resource type="AudioStream" uid="uid://idct3ec63ajp" path="res://jump.wav" id="43_8l4at"]
+[ext_resource type="AudioStream" uid="uid://ceaall7nxausw" path="res://running.mp3" id="43_p3vws"]
 [ext_resource type="Texture2D" uid="uid://cqvesvv70uh1m" path="res://Warrior-Ladder-Grab_5.png" id="44_gudgg"]
+[ext_resource type="AudioStream" uid="uid://k6mm06d35w5a" path="res://attack.wav" id="44_v0d21"]
 [ext_resource type="Texture2D" uid="uid://timikwh8pf4o" path="res://Warrior-Ladder-Grab_6.png" id="45_74nm8"]
 [ext_resource type="Texture2D" uid="uid://cnrp86b6yd0m2" path="res://Warrior-Ladder-Grab_7.png" id="46_1q826"]
+[ext_resource type="AudioStream" uid="uid://72ikmrftfsp8" path="res://falling.mp3" id="46_uwrmq"]
 [ext_resource type="Texture2D" uid="uid://biugf0g6m5yxt" path="res://Warrior-Ladder-Grab_8.png" id="47_b0fll"]
 [ext_resource type="Texture2D" uid="uid://cwjxjstv7el48" path="res://Warrior_Run_1.png" id="48_ocmm7"]
 [ext_resource type="Texture2D" uid="uid://dxca3v86e27m" path="res://Warrior_Run_2.png" id="49_ogob4"]
@@ -267,6 +271,21 @@ shape = SubResource("CircleShape2D_ek6ca")
 
 [node name="cooldown" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="Running" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("43_p3vws")
+volume_db = 5.0
+
+[node name="Jumping" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("43_8l4at")
+volume_db = 5.0
+
+[node name="Attacking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("44_v0d21")
+volume_db = 5.0
+
+[node name="Falling" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("46_uwrmq")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
