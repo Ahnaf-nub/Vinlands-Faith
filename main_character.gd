@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -7,29 +8,27 @@ extends CharacterBody2D
 @onready var falling: AudioStreamPlayer = $Falling
 @onready var running: AudioStreamPlayer = $Running
 
-
-
 const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
+const WALL_JUMP_FORCE = 350.0 # Adjusted for wall jumping
 const FALL_THRESHOLD = 1200.0 # Y position below which the character will restart
-var start_position = Vector2.ZERO # Starting position for the character
+
+var start_position = Vector2.ZERO
 var on_rope: bool = false
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var health = 100
 var is_attacking = false
 var double_jump = 0
-var last_direction = 1  # 1 = Right, -1 = Left
+var last_direction = 1 # 1 = Right, -1 = Left
 
 func _ready() -> void:
-	# Store the starting position of the character
 	start_position = position
-	
+
 func jump():
 	velocity.y = JUMP_VELOCITY
 	jumping.play()
 
-	
 func jump_side(x):
 	velocity.y = JUMP_VELOCITY
 	velocity.x = x
@@ -42,13 +41,15 @@ func _physics_process(delta: float) -> void:
 		sprite.play("death")
 		return
 
-	# Handle movement first
+	# Handle movement
 	var direction := Input.get_axis("left", "right")
+	var touching_wall = is_on_wall() and not is_on_floor()
+
 	if !is_attacking:
 		if direction != 0:
 			velocity.x = direction * SPEED
-			last_direction = direction  # Store last facing direction
-			if !running.playing: # Prevent overlapping sounds
+			last_direction = direction
+			if !running.playing:
 				running.play()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -57,22 +58,21 @@ func _physics_process(delta: float) -> void:
 	# Handle animations
 	if velocity.x != 0 and !is_attacking:
 		sprite.play("run")
-	else:
-		if !is_attacking:
-			sprite.play("idle")
+	elif !is_attacking:
+		sprite.play("idle")
 
-	# Handle jumping
+	# Apply Gravity
 	if !is_on_floor() and !on_rope and !is_attacking:
 		velocity += get_gravity() * delta
 		if velocity.y > 0:
 			sprite.play("fall")
-			if !falling.playing: # Play fall sound only once per fall
+			if !falling.playing:
 				falling.play()
 		else:
 			sprite.play("jump")
 
 	# Handle rope movement
-	if on_rope and is_attacking == false:
+	if on_rope and !is_attacking:
 		if Input.is_action_pressed("down"):
 			velocity.y = SPEED * delta * 15
 			sprite.play("ladder")
@@ -83,29 +83,35 @@ func _physics_process(delta: float) -> void:
 			velocity.y = 0
 
 	# Jump input handling
-	if Input.is_action_just_pressed("jump") and is_attacking == false:
+	if Input.is_action_just_pressed("jump") and !is_attacking:
 		if is_on_floor():
-			double_jump = 1  # Reset double jump when on the floor
-			velocity.y = JUMP_VELOCITY
-			jumping.play()
+			double_jump = 1
+			jump()
+		elif touching_wall:
+			if direction == 0:  # Neutral wall jump (jump straight up)
+				velocity.y = JUMP_VELOCITY
+			else:  # Wall jump away
+				velocity.y = JUMP_VELOCITY
+				velocity.x = -last_direction * WALL_JUMP_FORCE
 		elif double_jump == 1:
-			double_jump = 2  # Allow second jump
-			velocity.y = JUMP_VELOCITY
-			jumping.play()
+			double_jump = 2
+			jump()
 
-	
-	# Ensure double jump resets properly when landing
+	# Reset double jump when landing
 	if is_on_floor() and velocity.y == 0:
 		double_jump = 0
 
-	# Flip sprite based on last movement direction (persist even when idle)
+	# Flip sprite based on last movement direction
 	sprite.flip_h = last_direction < 0
 	
+	# Handle attacking
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		is_attacking = true
 		Global.current_attack = true
 		animation_player.play("attack")
 		attacking.play()
+		velocity.x = 0
+		velocity.y = 0
 		
 	move_and_slide()
 
@@ -114,16 +120,15 @@ func _physics_process(delta: float) -> void:
 		restart()
 
 func restart() -> void:
-	# Reset the character's position and velocity
 	position = start_position
 	velocity = Vector2.ZERO
 
 func _on_rope_body_entered(body: Node2D) -> void:
-	if "CharacterBody2D" in body.name:
+	if body is CharacterBody2D:
 		on_rope = true
 
 func _on_rope_body_exited(body: Node2D) -> void:
-	if "CharacterBody2D" in body.name:
+	if body is CharacterBody2D:
 		on_rope = false
 
 func _on_player_hitbox_body_entered(body: Node2D) -> void:
@@ -140,9 +145,6 @@ func enemy_attack():
 		enemy_attack_cooldown = false
 		$cooldown.start()
 		print(health)
-
-func player():
-	pass
 
 func _on_cooldown_timeout() -> void:
 	enemy_attack_cooldown = true
