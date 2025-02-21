@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://trv358b4aoks"]
+[gd_scene load_steps=16 format=3 uid="uid://trv358b4aoks"]
 
 [ext_resource type="Script" path="res://gamemanager.gd" id="1_0s8tw"]
 [ext_resource type="Texture2D" uid="uid://d3k4ovfxme045" path="res://TX Village Props.png" id="2_tk4sa"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c0kquggbjxx54" path="res://Tileset.png" id="4_oenfe"]
 [ext_resource type="Texture2D" uid="uid://bsvy0fwgfs1ci" path="res://Tree.png" id="4_r2574"]
 [ext_resource type="PackedScene" uid="uid://xfjsj7aoa7jc" path="res://main_character.tscn" id="5_8evgf"]
-[ext_resource type="Script" path="res://main_character.gd" id="6_ksmhe"]
 [ext_resource type="AudioStream" uid="uid://b4p1esu4c37xe" path="res://game_song.mp3" id="7_isik1"]
 [ext_resource type="Texture2D" uid="uid://bosrw51ubc4ib" path="res://heart.png" id="8_5j0th"]
 [ext_resource type="PackedScene" uid="uid://bc6n70j0bb5lx" path="res://boss.tscn" id="12_g5n8g"]
@@ -2534,7 +2533,6 @@ layer_2/tile_data = PackedInt32Array(524300, 393224, 30, 524301, 458760, 30)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("5_8evgf")]
 position = Vector2(37, 496)
-script = ExtResource("6_ksmhe")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(53, 93)
@@ -2543,7 +2541,7 @@ position_smoothing_speed = 7.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_isik1")
-volume_db = 24.0
+volume_db = -25.0
 autoplay = true
 mix_target = 1
 
@@ -2602,7 +2600,11 @@ hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart"), NodePath("../UI/Hearts/H
 [node name="boss" parent="." instance=ExtResource("12_g5n8g")]
 position = Vector2(721, 163)
 
+[node name="CollisionShape2D" parent="boss/bossenemy/enemy_hitbox" index="0"]
+position = Vector2(-16, 34.5)
+
 [connection signal="body_entered" from="rope/Sprite2D/rope" to="CharacterBody2D" method="_on_rope_body_entered"]
 [connection signal="body_exited" from="rope/Sprite2D/rope" to="CharacterBody2D" method="_on_rope_body_exited"]
 
 [editable path="rope"]
+[editable path="boss"]

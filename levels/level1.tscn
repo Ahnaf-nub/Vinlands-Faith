@@ -1,6 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://cveovdlvo6v4k"]
 
 [ext_resource type="Texture2D" uid="uid://dgj6k7hs3iaed" path="res://Terrain (16x16).png" id="2_227ty"]
+[ext_resource type="Texture2D" uid="uid://by16wuynkuslu" path="res://mountain_river_sunset.png" id="2_j7dmb"]
 [ext_resource type="Texture2D" uid="uid://bsvy0fwgfs1ci" path="res://Tree.png" id="3_rtqvf"]
 [ext_resource type="PackedScene" uid="uid://xfjsj7aoa7jc" path="res://main_character.tscn" id="4_1wsq6"]
 [ext_resource type="PackedScene" uid="uid://cxlvesxw3gc7m" path="res://collectibles.tscn" id="6_blbp0"]
@@ -10,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://drymwcqiw7xxu" path="res://movingplatform.tscn" id="11_mo2ta"]
 [ext_resource type="Texture2D" uid="uid://bosrw51ubc4ib" path="res://heart.png" id="12_psne0"]
 [ext_resource type="PackedScene" uid="uid://coo3iwwovgf4h" path="res://enemy.tscn" id="13_5p5ay"]
-[ext_resource type="Texture2D" uid="uid://daotyhuprjhu5" path="res://more_jungle.png" id="13_uccc5"]
 [ext_resource type="PackedScene" uid="uid://cg5oa61ani6ik" path="res://dimension.tscn" id="14_3jc4q"]
 [ext_resource type="Script" path="res://dimension.gd" id="15_sm0fa"]
 
@@ -635,6 +635,19 @@ sources/1 = SubResource("TileSetAtlasSource_3kpcm")
 [node name="Node" type="Node"]
 script = ExtResource("7_unkp0")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(160, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(-218, -116)
+scale = Vector2(3.89688, 3.34375)
+texture = ExtResource("2_j7dmb")
+centered = false
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
@@ -725,19 +738,6 @@ position = Vector2(-10, -1)
 
 [node name="Dimension" parent="." instance=ExtResource("14_3jc4q")]
 script = ExtResource("15_sm0fa")
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.05, 0.05)
-motion_mirroring = Vector2(160, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture_filter = 1
-position = Vector2(-218, -116)
-scale = Vector2(3.89688, 3.34375)
-texture = ExtResource("13_uccc5")
-centered = false
 
 [connection signal="body_entered" from="Dimension/Area2D" to="Dimension" method="_on_area_2d_body_entered"]
 

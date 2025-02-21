@@ -1,7 +1,7 @@
 [gd_scene load_steps=41 format=3 uid="uid://b0mdyck0mex47"]
 
 [ext_resource type="Script" path="res://gamemanager.gd" id="1_xq8mh"]
-[ext_resource type="Texture2D" uid="uid://fr6yxnltwoqo" path="res://levels/more_more_jungle.png" id="2_4aboe"]
+[ext_resource type="Texture2D" uid="uid://cs0jdl2daqgvs" path="res://vinland_forest.png" id="2_qsia7"]
 [ext_resource type="Texture2D" uid="uid://bvhh81ax4kqep" path="res://levels/rock_3.png" id="4_3exws"]
 [ext_resource type="Texture2D" uid="uid://cbx5lskvyced7" path="res://TX Tileset Ground.png" id="4_3sgxq"]
 [ext_resource type="Texture2D" uid="uid://clro5s0kse1w1" path="res://levels/fence_1.png" id="6_qku1u"]
@@ -3370,11 +3370,19 @@ animations = [{
 [node name="Node" type="Node"]
 script = ExtResource("1_xq8mh")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(0.5, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(160, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_filter = 1
-offset_right = 7341.0
-offset_bottom = 640.0
-texture = ExtResource("2_4aboe")
+position = Vector2(-197, -51)
+scale = Vector2(2.95937, 2.30312)
+texture = ExtResource("2_qsia7")
+centered = false
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1

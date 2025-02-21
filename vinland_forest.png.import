@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daotyhuprjhu5"
-path="res://.godot/imported/more_jungle.png-9e2c236ffed7afb304e09126878a9cbb.ctex"
+uid="uid://cs0jdl2daqgvs"
+path="res://.godot/imported/vinland_forest.png-fe16aa5a03f9d56b269440f0f0b7a877.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://more_jungle.png"
-dest_files=["res://.godot/imported/more_jungle.png-9e2c236ffed7afb304e09126878a9cbb.ctex"]
+source_file="res://vinland_forest.png"
+dest_files=["res://.godot/imported/vinland_forest.png-fe16aa5a03f9d56b269440f0f0b7a877.ctex"]
 
 [params]
 
