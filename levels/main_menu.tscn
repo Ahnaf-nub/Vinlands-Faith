@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://rlypki8q7pyh"]
+[gd_scene load_steps=7 format=3 uid="uid://rlypki8q7pyh"]
 
 [ext_resource type="Texture2D" uid="uid://g7vvbm2sfjw4" path="res://play.png" id="1_ij11d"]
 [ext_resource type="Script" path="res://levels/main_menu.gd" id="1_ps6ib"]
 [ext_resource type="FontFile" uid="uid://c0x2tr4x3vf8b" path="res://KiwiSoda.ttf" id="2_wxfx2"]
+[ext_resource type="Texture2D" uid="uid://bltgprw1h2xaa" path="res://exit.png" id="3_gcd1k"]
+[ext_resource type="Texture2D" uid="uid://bprc7ftsmhm4l" path="res://level_sel.png" id="4_2h5mm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5lxg"]
 bg_color = Color(0.807745, 0.561484, 0.500582, 1)
@@ -21,6 +23,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ps6ib")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 839.0
+offset_bottom = 640.0
+
 [node name="Button" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 1
@@ -29,37 +37,58 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -97.5
-offset_right = 175.0
-offset_bottom = 81.5
+offset_left = -73.5
+offset_top = -29.0
+offset_right = 107.5
+offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/pressed = SubResource("StyleBoxFlat_r5lxg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_r5lxg")
 icon = ExtResource("1_ij11d")
+flat = true
 icon_alignment = 1
 expand_icon = true
 
 [node name="Button2" type="Button" parent="."]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -175.0
-offset_top = -206.0
-offset_right = 175.0
-offset_bottom = -27.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -118.0
+offset_right = 292.0
+offset_bottom = 118.0
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.154483, 0.234808, 0.23947, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/pressed = SubResource("StyleBoxFlat_r5lxg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_r5lxg")
-text = "Exit"
+icon = ExtResource("3_gcd1k")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button3" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -222.0
+offset_top = -116.0
+offset_right = -35.0
+offset_bottom = 116.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.154483, 0.234808, 0.23947, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r5lxg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r5lxg")
+icon = ExtResource("4_2h5mm")
+flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -70,9 +99,8 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -264.0
-offset_top = 41.0
 offset_right = 264.0
-offset_bottom = 256.0
+offset_bottom = 215.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_wxfx2")
 theme_override_font_sizes/font_size = 80
@@ -82,3 +110,4 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_exit_pressed"]
